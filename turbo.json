@@ -1,0 +1,27 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "build:development": {
+      "dependsOn": ["^build:development"],
+      "outputs": ["dist/**"]
+    },
+    "document": {
+      "inputs": ["packages/framework/**/src/**/*.{ts,tsx}", "!packages/framework/**/src/**/*.test.{ts,tsx}"],
+      "outputs": ["packages/framework/esm-framework/docs/**"]
+    },
+    "test": {},
+    "test:watch": {},
+    "watch": {},
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "typescript": {
+      "dependsOn": ["^typescript"]
+    },
+    "extract-translations": {}
+  }
+}
